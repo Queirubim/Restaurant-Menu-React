@@ -6,6 +6,10 @@ import { numberToBRL, restaurantIsOpen } from "../../utius";
 import toast from "react-hot-toast";
 import { useForm } from "react-hook-form";
 
+type dataProps = {
+  name: string;
+};
+
 export const ModalCart = () => {
   const { hiddenCart, toggleCart, cartItems, totalPrice, resetCart } =
     useContext(CartContext);
@@ -17,11 +21,11 @@ export const ModalCart = () => {
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm();
+  } = useForm<dataProps>();
 
   const hasItemCart = () => cartItems.length >= 1;
 
-  const onSubmit = (data) => {
+  const onSubmit = (data: dataProps) => {
     if (!restaurantIsOpen()) {
       toast.error("Não estamos online agora");
     } else {
@@ -34,6 +38,7 @@ export const ModalCart = () => {
       const completedMsg = `${itemsMsg} | TOTAL: ${numberToBRL(totalPrice)} | Endereço: ${data.name}`;
 
       console.log(completedMsg);
+      console.log();
       toast.success("Pedido Enviado com Sucesso");
     }
     reset();

@@ -5,15 +5,8 @@ import { ItemProductMenu } from "./components/ItemProductMenu";
 import { ModalCart } from "./components/ModalCart";
 import { TitleSection } from "./components/TitleSection";
 import { CartProvider } from "./context/cart";
-import { MenuPage } from "./types/typesMenuPage";
 import { Toaster } from "react-hot-toast";
-
-async function getMenuData(): Promise<MenuPage> {
-  const response = await fetch("menu_mock.json");
-  return await response.json();
-}
-
-const { menuProducts } = await getMenuData();
+import { menuProducts } from "./menu_mock";
 
 function App() {
   return (
@@ -23,7 +16,7 @@ function App() {
       <h2 className="text-2xl md:text-5xl font-bold text-center mt-9 mb-6">
         Conheça Nosso Menu
       </h2>
-      {menuProducts.map((section) => (
+      {menuProducts?.map((section) => (
         <div key={section.title}>
           <TitleSection title={section.title} />
           <GridLayout>
