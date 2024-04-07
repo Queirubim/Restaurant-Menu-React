@@ -19,7 +19,7 @@ Este projeto é um menu de restaurantes desenvolvido em React com TypeScript, ut
 
 ## Instalação e Uso
 
-1.  Clone o repositório: `git clone https://github.com/seu-usuario/nome-do-repositorio.git`
+1.  Clone o repositório: `git clone https://github.com/Queirubim/Restaurant-Menu-React.git`
 2.  Instale as dependências: `npm install` ou `yarn install`
 3.  Inicie o servidor de desenvolvimento: `npm start` ou `yarn start`
 4.  Acesse o aplicativo em `http://localhost:5173`
